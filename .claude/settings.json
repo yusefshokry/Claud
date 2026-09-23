@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "defaultMode": "bypassPermissions",
+    "allow": [
+      "mcp__Google_Calendar__*",
+      "mcp__Gmail__*",
+      "mcp__Notion__*",
+      "mcp__Google_Drive__*",
+      "mcp__Claude_Code_Remote__*"
+    ]
+  }
+}
