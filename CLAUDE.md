@@ -93,6 +93,8 @@ Routines live in the cloud session (all times ET, EDT):
 
 ## Agents (in this repo)
 
+- **`project-agent`** (`.claude/agents/project-agent.md`, added 2026-09-26) — on demand ("project agent X", "work on X", "strategize/organize X"): takes one Goal/Project, triages every task under it, **assigns itself** the research tasks (INBOX **`Owner`** = Claude; the daily planner never calendars Claude-owned tasks) and does them, writes findings into the task bodies, and writes a Strategy section. It then organizes the parent page (Next action / Strategy / Open questions / Research, then his original content preserved) and sorts Sub-items into execution order. **It is the one agent that asks clarifying questions** (Yusef asked for this): it returns a `QUESTIONS` block, and the main session asks them with the question tool (≤5, recommended option first), then sends the answers back to the agent to continue.
+
 - **`job-hunter`** (`.claude/agents/job-hunter.md`) — on demand ("job hunt", "find me jobs"): finds open DC/Metro-reachable jobs above ~$25/hr (~$4k/mo take-home, until he sets his own target) in membership sales, spa/front-desk lead, guest-experience roles that leave room for tattoo practice; logs them to the **💼 Job Leads** tracker (`collection://6989e81b-2ba7-45ad-9709-c9eef59e28d6`, inline on the "Find a better-paying job" goal page); searches LinkedIn's public job search (Indeed/ZipRecruiter block bots; their email alerts in Gmail are read instead); checks Gmail for replies; writes cover letters and follow-ups as **Gmail drafts only** (never sends or applies). VIDA Reston JMA is logged there as Applied (2026-09-16).
 
 ## Notion conventions (Yusef's, follow them)
@@ -100,6 +102,7 @@ Routines live in the cloud session (all times ET, EDT):
 - **Icons**: Tasks → `icons/checklist_yellow`. Goals → `icons/bullseye_<color>`. Projects → `icons/wrench_<color>` (game-plan/strategy docs → `icons/chess-queen_<color>`). Color by area: Career/Portfolio blue, Financial green, Home/Health pink, Education/social yellow. Never emoji icons on INBOX rows.
 - **Task titles**: concise (2–6 words), verb first, **never numbered**. Details live in the page body.
 - **Frozen** is a state (checkbox), not a sub-task (see above).
+- **Owner** (Yusef / Claude, empty = Yusef): Claude-owned tasks are research the project-agent took on. They're not scheduled on his calendar.
 
 ## Other tools built
 

@@ -15,7 +15,7 @@ Turn vague or stalled plans in Yusef's Notion INBOX into short chains of concret
 ## Data
 
 - INBOX: `collection://2c5e4241-b1a3-80b5-bedb-000b9ea93719`
-- `Inbox` (title) · `.` (done) · **`Frozen`** (archived-to-the-side state, like done) · `Area (1)` (Goal / Project / Task / Chore / Journal / Gratitude / Inventory / Shop / Question) · `Area` · `Priority` (Urgent / Important / **Maintence** / Optional) · `Year` · `Quarter` · `Date` · `Parent item` / `Sub-item` · **`Blocked by` / `Blocking`** · `today`
+- `Inbox` (title) · `.` (done) · **`Frozen`** (archived-to-the-side state, like done) · `Area (1)` (Goal / Project / Task / Chore / Journal / Gratitude / Inventory / Shop / Question) · `Area` · `Priority` (Urgent / Important / **Maintence** / Optional) · `Year` · `Quarter` · `Date` · `Parent item` / `Sub-item` · **`Blocked by` / `Blocking`** · `today` · `Owner` (Yusef / Claude; Claude-owned = research the project-agent took on, leave those to it)
 - Shop outreach = INBOX rows with `Area (1)` = Shop (`Shop Tier`, `Outreach Status`, `First Visit`, `Next Follow-up`). People = Contacts (`collection://fa3d2aa0-501f-49e0-85a8-2615f0fb2c5b`). Gift ideas = 🎁 Gift Ideas table on the XMAS page. Groceries = children of Grosseries.
 
 ## 1. Find gaps
