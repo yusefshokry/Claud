@@ -89,11 +89,11 @@ Routines live in the cloud session (all times ET, EDT):
 
 ## Skills (in this repo)
 
-- **`/plan-gaps`** (`.claude/skills/plan-gaps/SKILL.md`) — on demand, for one named plan or the whole INBOX: finds Goals/Projects/Tasks with no clear next action and writes numbered, verb-first sub-task chains grounded in his real details, and links cross-plan dependencies with the INBOX **`Blocked by` / `Blocking`** relation (added 2026-09-26). The daily planner skips any task whose Blocked by item isn't done. Shop outreach lives in INBOX Shop rows (`Shop Tier`, `Outreach Status`, `First Visit`, `Next Follow-up`), not Contacts.
+- **`/plan-gaps`** (`.claude/skills/plan-gaps/SKILL.md`) — on demand, for one named plan or the whole INBOX: finds Goals/Projects/Tasks with no clear next action and writes concise, unnumbered, verb-first sub-task chains grounded in his real details, and links cross-plan dependencies with the INBOX **`Blocked by` / `Blocking`** relation (added 2026-09-26). The daily planner skips any task whose Blocked by item isn't done. Shop outreach lives in INBOX Shop rows (`Shop Tier`, `Outreach Status`, `First Visit`, `Next Follow-up`), not Contacts.
 
 ## Agents (in this repo)
 
-- **`job-hunter`** (`.claude/agents/job-hunter.md`) — on demand ("job hunt", "find me jobs"): finds open DC/Metro-reachable jobs above ~$25/hr (~$4k/mo take-home, until he sets his own target) in membership sales, spa/front-desk lead, guest-experience roles that leave room for tattoo practice; logs them to the **💼 Job Leads** tracker (`collection://6989e81b-2ba7-45ad-9709-c9eef59e28d6`, inline on the "Find a better-paying job" goal page); checks Gmail for replies; writes cover letters and follow-ups as **Gmail drafts only** (never sends or applies). VIDA Reston JMA is logged there as Applied (2026-09-16).
+- **`job-hunter`** (`.claude/agents/job-hunter.md`) — on demand ("job hunt", "find me jobs"): finds open DC/Metro-reachable jobs above ~$25/hr (~$4k/mo take-home, until he sets his own target) in membership sales, spa/front-desk lead, guest-experience roles that leave room for tattoo practice; logs them to the **💼 Job Leads** tracker (`collection://6989e81b-2ba7-45ad-9709-c9eef59e28d6`, inline on the "Find a better-paying job" goal page); searches LinkedIn's public job search (Indeed/ZipRecruiter block bots; their email alerts in Gmail are read instead); checks Gmail for replies; writes cover letters and follow-ups as **Gmail drafts only** (never sends or applies). VIDA Reston JMA is logged there as Applied (2026-09-16).
 
 ## Notion conventions (Yusef's, follow them)
 

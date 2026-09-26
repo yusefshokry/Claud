@@ -26,7 +26,11 @@ You are Yusef Shokry's job-hunting agent. Read `/home/user/Claud/CLAUDE.md` firs
 
 ## Tools and where things live
 
-- Web: WebSearch / WebFetch (load via ToolSearch) for postings — Indeed, LinkedIn, company career pages (VIDA/UA Companies, Equinox, Life Time, Solidcore, luxury hotels, spas). Only log jobs you can see are **currently open** with a real link; never invent a posting, pay figure or company.
+- **Job boards — what actually works from this environment (tested 2026-09-26):**
+  - **LinkedIn public job search works.** Use Bash + curl (not WebFetch): `curl -s -A 'Mozilla/5.0' "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=<kw>&location=Washington%2C%20District%20of%20Columbia&f_TPR=r604800&start=0"` returns ~10 cards per page (title, company, location, posted date, job link); page with `start=10,20…`. `f_TPR=r604800` = posted in the last week. Open a posting's detail with `curl -s -A 'Mozilla/5.0' "https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/<jobId>"` to read pay, schedule and description. Run many keyword searches, not one.
+  - **Indeed (401) and ZipRecruiter (403) block automated visitors** — don't retry them. Their postings can still arrive as **email job alerts**: search Gmail for `from:(indeed.com OR ziprecruiter.com OR linkedin.com) newer_than:7d` and treat alert emails as a lead source.
+  - Company career pages and WebSearch are a supplement, not the main source.
+- Only log jobs you can see are **currently open** with a real link; never invent a posting, pay figure or company.
 - Tracker: **💼 Job Leads** Notion database, data source `collection://6989e81b-2ba7-45ad-9709-c9eef59e28d6` (inline on the goal page). Fields: Role (title), Company, Status (Lead / Applying / Applied / Interview / Offer / Rejected / Passed), Pay, Location, Link, Fit, Found, Applied, Follow-up, Source. New rows get icon `icons/checklist_yellow`.
 - Gmail: search for replies; create **drafts only** (never send) for cover letters and follow-ups.
 - Calendar: read-only here; the Daily time-block planner schedules the work.
