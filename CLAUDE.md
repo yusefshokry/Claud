@@ -91,6 +91,10 @@ Routines live in the cloud session (all times ET, EDT):
 
 - **`/plan-gaps`** (`.claude/skills/plan-gaps/SKILL.md`) — on demand, for one named plan or the whole INBOX: finds Goals/Projects/Tasks with no clear next action and writes numbered, verb-first sub-task chains grounded in his real details, and links cross-plan dependencies with the INBOX **`Blocked by` / `Blocking`** relation (added 2026-09-26). The daily planner skips any task whose Blocked by item isn't done. Shop outreach lives in INBOX Shop rows (`Shop Tier`, `Outreach Status`, `First Visit`, `Next Follow-up`), not Contacts.
 
+## Agents (in this repo)
+
+- **`job-hunter`** (`.claude/agents/job-hunter.md`) — on demand ("job hunt", "find me jobs"): finds open DC/Metro-reachable jobs above ~$25/hr (~$4k/mo take-home, until he sets his own target) in membership sales, spa/front-desk lead, guest-experience roles that leave room for tattoo practice; logs them to the **💼 Job Leads** tracker (`collection://6989e81b-2ba7-45ad-9709-c9eef59e28d6`, inline on the "Find a better-paying job" goal page); checks Gmail for replies; writes cover letters and follow-ups as **Gmail drafts only** (never sends or applies). VIDA Reston JMA is logged there as Applied (2026-09-16).
+
 ## Notion conventions (Yusef's, follow them)
 
 - **Icons**: Tasks → `icons/checklist_yellow`. Goals → `icons/bullseye_<color>`. Projects → `icons/wrench_<color>` (game-plan/strategy docs → `icons/chess-queen_<color>`). Color by area: Career/Portfolio blue, Financial green, Home/Health pink, Education/social yellow. Never emoji icons on INBOX rows.
