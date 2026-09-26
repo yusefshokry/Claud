@@ -69,8 +69,8 @@ Google Calendar's description field does **not** reliably render `<a href>` HTML
 Routines live in the cloud session (all times ET, EDT):
 - **"You Are Here - daily refresh"** (trigger `trig_01XG3p3uNQK2wjoqHiEjaQHY`, daily 11:00 UTC / 7:00am) — silently refreshes the 📍 You Are Here callout on the Data Base page.
 - **"VIDA Reston application - watch for reply"** (`trig_01NSVG4G9KDA3hNLcihmk1md`, daily 13:00 UTC / 9:00am) — see below.
-- **"Plan Gap Filler"** (`trig_01RQRvBrpVCg7Dnn75aEMKdh`, daily 12:45 UTC / 8:45am, 30 min before the planner) — sweeps ALL open Goals/Projects/Tasks every run (no cap — Yusef asked for comprehensive and thorough on 2026-09-26) and adds numbered, verb-first sub-task chains from first action to finish line under any item missing a clear next step ("Ask <person> for <thing>" when info is missing, never a guess). Respects the Reston/GM holds, the PayPal/Adobe freeze and the Linework lock, never edits or checks Yusef's own items, silent when there are no gaps.
-- **FROZEN (2026-09-26, "paypal and adobe is frozen for now")**: "pay paypal Debt" and "Negotiate with adobe Support to wave cancel fee." plus their "⏸ FROZEN" sub-tasks — no steps, no scheduling, until Yusef says otherwise. Baked into both the planner and the Gap Filler prompts.
+- **FROZEN (2026-09-26, "paypal and adobe is frozen for now")**: "pay paypal Debt" and "Negotiate with adobe Support to wave cancel fee." plus their "⏸ FROZEN" sub-tasks — no steps, no scheduling, until Yusef says otherwise. Baked into the planner prompt and the /plan-gaps skill.
+- The "Plan Gap Filler" routine was deleted on 2026-09-26; Yusef wanted it as an on-demand skill instead (see Skills below).
 - **"Weekly Chore Reset"** (`trig_016JdPY5Gqap4k7KUJ2Lecen`, Fridays 13:00 UTC / 9:00am, fresh session each run) — unchecks every Chore in INBOX.
 - **"Weekly Meal Planner"** (`trig_01SEK7B3AJcbhvY9stFVRfPy`, Fridays 22:00 UTC / 6:00pm) — plans the week's meals on the Meal prep chore page from his saved recipes, syncs grocery inventory (Parent item = Grosseries) to Need, and puts Grocery run + Meal prep blocks on Domestic Work.
 - **"Daily Finance Check-in"** (`trig_01QxVMABofo3i9cRMt1e7niw`, daily 01:00 UTC / 9:00pm) and **"Weekly Finance Check-in"** (`trig_01RBWVsctm2wi8AxDGfJGFaz`, Sundays 22:00 UTC / 6:00pm) — read-only Era_Context readouts. Capital One checking is connected via MX. The Era Basic tier only shows ~3 weeks of history, so income detection is limited.
@@ -86,6 +86,10 @@ Routines live in the cloud session (all times ET, EDT):
   - **Standing permission to edit descriptions**: may refresh the description (never the time) of a Deep work block Yusef created himself, when it's generic/stale, to add a concrete intention.
   - Description field = forward-looking **intentions** only (what he plans to do), never phrased as already-done — that's separate from his own "ta-da list" of what he actually completed, which he adds himself afterward.
 - **"VIDA Reston application - watch for reply"** details (trigger `trig_01NSVG4G9KDA3hNLcihmk1md`, daily 13:00 UTC) — quiet Gmail check for a real reply to the Reston JMA application; stays silent unless an actual reply (not a bulk/list email) arrives.
+
+## Skills (in this repo)
+
+- **`/plan-gaps`** (`.claude/skills/plan-gaps/SKILL.md`) — on demand, for one named plan or the whole INBOX: finds Goals/Projects/Tasks with no clear next action and writes numbered, verb-first sub-task chains grounded in his real details, and links cross-plan dependencies with the INBOX **`Blocked by` / `Blocking`** relation (added 2026-09-26). The daily planner skips any task whose Blocked by item isn't done. Shop outreach lives in INBOX Shop rows (`Shop Tier`, `Outreach Status`, `First Visit`, `Next Follow-up`), not Contacts.
 
 ## Other tools built
 
