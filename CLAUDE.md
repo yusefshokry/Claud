@@ -69,7 +69,7 @@ Google Calendar's description field does **not** reliably render `<a href>` HTML
 Routines live in the cloud session (all times ET, EDT):
 - **"You Are Here - daily refresh"** (trigger `trig_01XG3p3uNQK2wjoqHiEjaQHY`, daily 11:00 UTC / 7:00am) — silently refreshes the 📍 You Are Here callout on the Data Base page.
 - **"VIDA Reston application - watch for reply"** (`trig_01NSVG4G9KDA3hNLcihmk1md`, daily 13:00 UTC / 9:00am) — see below.
-- **FROZEN (2026-09-26, "paypal and adobe is frozen for now")**: "pay paypal Debt" and "Negotiate with adobe Support to wave cancel fee." plus their "⏸ FROZEN" sub-tasks — no steps, no scheduling, until Yusef says otherwise. Baked into the planner prompt and the /plan-gaps skill.
+- **Frozen state (2026-09-26)**: INBOX has a `Frozen` checkbox — a state like done that archives an item to the side (NOT a sub-task or title prefix). Open-item views (All, TASKS, PROJECTS, GOALS, Career, PORTFOLIO, Today board, Priority board) hide Frozen; the **❄️ Frozen** view lists them; `Open Sub-tasks`/`Effective Priority` formulas ignore them. The planner and /plan-gaps skip Frozen items and their children. Currently frozen: "pay paypal Debt", "Negotiate with adobe Support to wave cancel fee." and their sub-tasks.
 - The "Plan Gap Filler" routine was deleted on 2026-09-26; Yusef wanted it as an on-demand skill instead (see Skills below).
 - **"Weekly Chore Reset"** (`trig_016JdPY5Gqap4k7KUJ2Lecen`, Fridays 13:00 UTC / 9:00am, fresh session each run) — unchecks every Chore in INBOX.
 - **"Weekly Meal Planner"** (`trig_01SEK7B3AJcbhvY9stFVRfPy`, Fridays 22:00 UTC / 6:00pm) — plans the week's meals on the Meal prep chore page from his saved recipes, syncs grocery inventory (Parent item = Grosseries) to Need, and puts Grocery run + Meal prep blocks on Domestic Work.
@@ -90,6 +90,12 @@ Routines live in the cloud session (all times ET, EDT):
 ## Skills (in this repo)
 
 - **`/plan-gaps`** (`.claude/skills/plan-gaps/SKILL.md`) — on demand, for one named plan or the whole INBOX: finds Goals/Projects/Tasks with no clear next action and writes numbered, verb-first sub-task chains grounded in his real details, and links cross-plan dependencies with the INBOX **`Blocked by` / `Blocking`** relation (added 2026-09-26). The daily planner skips any task whose Blocked by item isn't done. Shop outreach lives in INBOX Shop rows (`Shop Tier`, `Outreach Status`, `First Visit`, `Next Follow-up`), not Contacts.
+
+## Notion conventions (Yusef's, follow them)
+
+- **Icons**: Tasks → `icons/checklist_yellow`. Goals → `icons/bullseye_<color>`. Projects → `icons/wrench_<color>` (game-plan/strategy docs → `icons/chess-queen_<color>`). Color by area: Career/Portfolio blue, Financial green, Home/Health pink, Education/social yellow. Never emoji icons on INBOX rows.
+- **Task titles**: concise (2–6 words), verb first, **never numbered**. Details live in the page body.
+- **Frozen** is a state (checkbox), not a sub-task (see above).
 
 ## Other tools built
 

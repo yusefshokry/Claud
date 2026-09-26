@@ -1,66 +1,59 @@
 ---
 name: plan-gaps
-description: Find gaps in Yusef's Notion plans (Goals, Projects, Tasks) and flesh them out into concrete, ordered, dependency-linked next actions. Use when Yusef says "flesh out", "fill the gaps", "break this down", "what's the next step for X", "plan gaps", or runs /plan-gaps — for one named plan or the whole INBOX.
+description: Find gaps in Yusef's Notion plans (Goals, Projects, Tasks) and flesh them out into short, concrete, dependency-linked next actions. Use when Yusef says "flesh out", "fill the gaps", "break this down", "what's the next step for X", "plan gaps", or runs /plan-gaps — for one named plan or the whole INBOX.
 ---
 
 # Plan Gaps
 
-Turn vague or stalled plans in Yusef's Notion INBOX into chains of small, concrete actions, with real dependencies linked, so every open plan has a doable next step. This runs on demand (it replaced the daily "Plan Gap Filler" routine on 2026-09-26, because Yusef wants to steer it rather than have it fire unattended).
+Turn vague or stalled plans in Yusef's Notion INBOX into short chains of concrete actions, with real dependencies linked, so every open plan has a doable next step. On demand only (replaced the daily "Plan Gap Filler" routine on 2026-09-26).
 
 ## Scope
 
-- **Argument given** (e.g. `/plan-gaps apartment`, "flesh out the XMAS plan"): work only on that plan and everything under it. Find it by title search in the INBOX; if several match, take the closest and say which one you used.
-- **No argument**: sweep every open Goal, Project and Task. Be comprehensive: no cap on how many items you cover. Yusef explicitly asked for thorough over minimal.
+- **Argument given** (`/plan-gaps apartment`, "flesh out the XMAS plan"): only that plan and everything under it. Match by title; if several match, take the closest and say which.
+- **No argument**: every open Goal, Project and Task. Be thorough — no cap on items covered.
 
 ## Data
 
-- INBOX data source: `collection://2c5e4241-b1a3-80b5-bedb-000b9ea93719`
-- Fields that matter: `Inbox` (title), `.` (done checkbox, `__YES__`/`__NO__`), `Area (1)` (Goal / Project / Task / Chore / Journal / Gratitude / Inventory / Shop / Question), `Area` (life domain), `Priority` (Urgent / Important / **Maintence** — that spelling / Optional), `Year`, `Quarter`, `Date`, `Parent item` / `Sub-item` (hierarchy), **`Blocked by` / `Blocking`** (cross-plan dependencies), `today`.
-- Shop outreach lives in INBOX rows with `Area (1)` = Shop (`Shop Tier`, `Outreach Status`, `First Visit`, `Next Follow-up`, `Who to Approach`, `Shop Notes`) — not in Contacts. Contacts (`collection://fa3d2aa0-501f-49e0-85a8-2615f0fb2c5b`) holds people.
-- Query with `notion-query-data-sources` (SQL). Sub-item/Blocked-by columns come back as URL arrays; query those URLs to get titles and done state.
+- INBOX: `collection://2c5e4241-b1a3-80b5-bedb-000b9ea93719`
+- `Inbox` (title) · `.` (done) · **`Frozen`** (archived-to-the-side state, like done) · `Area (1)` (Goal / Project / Task / Chore / Journal / Gratitude / Inventory / Shop / Question) · `Area` · `Priority` (Urgent / Important / **Maintence** / Optional) · `Year` · `Quarter` · `Date` · `Parent item` / `Sub-item` · **`Blocked by` / `Blocking`** · `today`
+- Shop outreach = INBOX rows with `Area (1)` = Shop (`Shop Tier`, `Outreach Status`, `First Visit`, `Next Follow-up`). People = Contacts (`collection://fa3d2aa0-501f-49e0-85a8-2615f0fb2c5b`). Gift ideas = 🎁 Gift Ideas table on the XMAS page. Groceries = children of Grosseries.
 
-## 1. Find the gaps
+## 1. Find gaps
 
-Pull every unchecked row in scope whose `Area (1)` contains Goal, Project or Task, plus its sub-items (open and done). A gap is:
-
-- a Goal with no open Project/Task under it
-- a Project with no open Task under it
-- a Task that is really several steps, is vague ("plan X", "figure out Y", a bare noun, a "how do I…?" question), or waits on something that hasn't happened (info from a person, a booking, a purchase, a document, an appointment) — and has no open sub-tasks
-- a chain whose open steps don't actually reach the parent's outcome (missing middle or last step)
+Unchecked, unfrozen Goals/Projects/Tasks in scope, plus their sub-items. A gap is:
+- a Goal with no open Project/Task under it; a Project with no open Task
+- a Task that is vague ("plan X", a bare noun, a "how do I…?"), secretly several steps, or waiting on something that hasn't happened — with no open sub-tasks
+- a chain whose open steps don't reach the outcome
 - a dated item within ~90 days with no prep steps
-- a cross-plan dependency that isn't linked yet (e.g. a trip that needs the passport task first)
-- one of Yusef's stated goals with no Goal row at all (see CLAUDE.md "Current goals"; check for similar titles first)
+- an unlinked cross-plan dependency
+- a stated goal (CLAUDE.md "Current goals") with no Goal row — check for similar titles first
 
-**Skip:** Chores, Journal, Gratitude, Inventory rows (unless one hides a real purchase decision), done items, and clutter (untitled rows, "(1)" duplicates, "Test", bare Photoshop/Clip Studio hotkey names). List clutter in the report; never touch it.
+**Skip:** Chores, Journal, Gratitude, Inventory rows, done items, **Frozen items and anything under a Frozen parent**, and clutter (untitled, "(1)" duplicates, "Test", bare hotkey names — list it, never touch it).
 
-**Respect holds** (read CLAUDE.md fresh — it is the source of truth; at time of writing):
-- FROZEN: "pay paypal Debt" and "Negotiate with adobe Support to wave cancel fee." and their "⏸ FROZEN" sub-tasks.
-- Reston presentation + GM/membership-advisor outreach: on hold until VIDA Reston actually replies.
-- Portfolio locked to Linework (reps mode): don't build chains for other portfolio pieces.
-- Things Yusef says are already done (e.g. Thanksgiving time off requested) are done.
+**Respect** (read CLAUDE.md fresh; it's the source of truth): Reston presentation + GM outreach on hold until VIDA replies; portfolio locked to Linework (no chains for other pieces); things Yusef says are done are done.
 
-## 2. Read before you write
+## 2. Read first
 
-For each gap, fetch the page and its parent. Pull real facts from wherever they live — the page body, related Notion pages (e.g. the Tattoo career game plan), Gmail, Google Calendar, Era_Context finance data. The quality bar is **specific to Yusef's actual situation**: names, amounts, phone numbers, links, dates, what's already been done. A step that could appear in anyone's to-do list ("set a budget", "do research") is only acceptable when it's genuinely the next move, and even then it should carry his real numbers in the Why line.
+Fetch the page and its parent. Pull real facts (page body, related pages like the Tattoo career game plan, Gmail, Calendar, Era_Context). If the page already names a contact, number or link, the step uses it (e.g. "Call JATC 26 (Mark)" not "Look up electrician programs").
 
-Check existing structures before inventing new ones (the shop list is Shop rows; people are Contacts; groceries are Grosseries children; gift ideas are the 🎁 Gift Ideas table on the XMAS page).
+## 3. Write the chain — Yusef's conventions
 
-## 3. Write the chain
-
-Create sub-tasks with `notion-create-pages` in the INBOX data source:
-
-- `Parent item` = the gap's URL. `Area (1)` = `["Task"]`. Copy `Area`, `Priority`, `Year`, `Quarter` from the parent.
-- As many steps as the outcome really needs, first action to finish line (usually 3–8). A Goal gets milestones and the first concrete actions under the first one.
-- Title: one physical action, verb first, finishable in one sitting, numbered in order: `1) Text Matt: ask what flight home he booked`. Continue numbering when extending an existing chain.
-- Missing info is its own step: `Ask <person> for <thing>`. Never guess names, dates or prices.
-- Body: `Why: <how this unblocks the parent, with the specific facts>` then `Added by /plan-gaps on <date>`.
-- **Link real dependencies with `Blocked by`** (value = array of page URLs) whenever a step can't start until something in *another* plan is done — e.g. China trip ← Apply for passport; max rent ← take-home pay step; print pieces ← portfolio book. Within one chain, numbering is enough.
-- Never duplicate an existing sub-item in substance. Don't set `today`. Don't touch calendars — the Daily time-block planner schedules only the lowest-numbered open, unblocked step of each chain.
+- **Titles: concise, 2–6 words, verb first, no numbering.** "Book passport appointment", "Ask Matt: beach weekend", "Pay Harris & Harris $274.95". Details go in the page body, not the title.
+- **Icons** (always set `icon` on create):
+  - Task / action step → `icons/checklist_yellow`
+  - Goal → `icons/bullseye_<color>`; Project → `icons/wrench_<color>` (or `icons/chess-queen_<color>` for a game-plan/strategy doc)
+  - `<color>` by area: Career/Portfolio → `blue`, Financial → `green`, Home/Health → `pink`, Education/social → `yellow`
+- **Order = creation order.** Create a chain's steps in the order they must happen, in one call; the planner schedules the first open one in the parent's Sub-item order.
+- Properties: `Parent item` = gap's URL; `Area (1)` = `["Task"]`; copy `Area`, `Priority`, `Year`, `Quarter` from the parent.
+- Missing info is its own step: `Ask <person>: <thing>`. Never guess names, dates, prices.
+- Body: one line `Why: …` with the specific facts (phone, link, amount, date), then `Added by /plan-gaps on <date>`.
+- Cross-plan dependencies → set `Blocked by` (array of page URLs). Within a chain, creation order is enough.
+- Only as many steps as the outcome truly needs; don't pad. Never duplicate an existing sub-item in substance. Don't set `today`. Don't touch calendars.
 
 ## 4. Never
 
-Check, uncheck, rename, delete, re-prioritize or re-parent anything Yusef created, or edit his page bodies. Rows this skill created (body says "Added by /plan-gaps" or "Added by Plan Gap Filler") you may fix, re-title, mark done, or mark `⏸ FROZEN` when he says so.
+Check, uncheck, rename, delete, re-prioritize, re-parent or freeze anything Yusef created, or edit his page bodies — unless he asks. Freezing is a state (`Frozen` checkbox), never a sub-task or a title prefix. Rows this skill created ("Added by /plan-gaps" / "Added by Plan Gap Filler") you may fix, re-title, check off or freeze when he says so.
 
 ## 5. Report
 
-One grouped message: each parent (with Notion URL) → the numbered steps added, any `Blocked by` links made, then one line each for clutter spotted and for what was deliberately left alone (frozen / held / locked). No questions, no filler. Act first; state any assumption afterward so he can correct it.
+One grouped message: each parent (with Notion URL) → the steps added (titles only), `Blocked by` links made, then one line each for clutter spotted and anything deliberately left alone. No questions, no filler. Act first; state assumptions after.
