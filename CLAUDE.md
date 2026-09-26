@@ -64,6 +64,8 @@ Google Calendar's description field does **not** reliably render `<a href>` HTML
 
 ## Standing automations (Routines)
 
+**Which session runs routines (set 2026-09-26):** Yusef's local "Personal Assistant" session (`session_01658mKS1vFHC6JM1ewijJRu`, Remote Control on his own computer) is the **primary** for all routines. The cloud session (`session_01VkvV3dT2RKaDYhpKx5JxgF`) is **backup only**: every routine bound to it starts with a gate that checks the local session's `connection_status`. If the local session is connected, the cloud copy hands the job off (or stays silent when the local session already has its own version, like the daily finance brief). It runs the job itself only when the local session is offline, and labels those runs "(backup run — your local session was offline)". Don't add new routines to the cloud session without this gate.
+
 - **"Morning brief"** (weekdays, 12:00 UTC) — renders the `/morning` skill brief. Custom Sections added this conversation: "This Quarter's Goals" (pulled from Notion, dropped if empty) and "Daily Gratitude" (always renders, links to today's Journal entry if one exists).
 - **"Morning time-block snapshot"** (9:00 AM ET) and **"Evening plan vs. actual"** (6:30 PM ET) — diff the day's actual calendar against the morning snapshot, message a summary, and log it to the Time Block Log page.
 - **"Daily time-block planner"** (trigger `trig_01SxVC4k5qacHY1gwWhAWht8`, fires 13:15 UTC / ~9:15 AM ET) — reads all the calendars above plus open Notion INBOX tasks (`Area (1)` contains "Task", not checked), then auto-schedules new blocks into real open gaps. Key standing rules baked into this Routine (see the trigger's own prompt for full detail — this is a summary for other sessions/environments):
