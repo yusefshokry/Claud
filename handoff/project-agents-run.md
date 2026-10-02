@@ -32,7 +32,7 @@ Tell each agent:
    - The portfolio book row (https://app.notion.com/360e4241b1a3800ebd4fe898ae4ee928) and the "best 15" link row (https://app.notion.com/360e4241b1a380ef895ff3f396e3f486), plus their parent (https://app.notion.com/3dee4241b1a380ceb473f0908a3d103d)
    - Notes: Shop rows are context only. Cross-plan duplicates are likely, so merge them. The portfolio is locked to Linework.
 2. **Career & income:**
-   - Find a better-paying job: https://app.notion.com/3e7e4241b1a3816395fdd61c6109f8eb. Don't run a job search and don't add Job Leads rows.
+   - Find a better-paying job: https://app.notion.com/3e7e4241b1a3816395fdd61c6109f8eb. Don't run a job search and don't add Job Lead rows.
    - VIDA Reston JMA prep: https://app.notion.com/2cae4241b1a3809c8b6fc5a69b3674a5 and its parent https://app.notion.com/3dde4241b1a380d39281e687668c2729. The Reston presentation and GM outreach stay **on hold** until VIDA replies.
    - Make 4k a month: https://app.notion.com/31ee4241b1a3804cbb77c016156facab
    - Electrician program: https://app.notion.com/334e4241b1a3809eaf42f9934b70232c
