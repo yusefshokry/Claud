@@ -64,7 +64,7 @@ Google Calendar's description field does **not** reliably render `<a href>` HTML
 
 ## Standing automations (Routines)
 
-**Which session runs routines (updated 2026-09-26):** The cloud session (`session_01VkvV3dT2RKaDYhpKx5JxgF`) is the **primary** runner for all routines, with no gate. Yusef's local "Personal Assistant" session (`session_01658mKS1vFHC6JM1ewijJRu`, Remote Control on his own computer) goes `computer_unreachable` whenever his computer sleeps, so it can't be relied on. The cloud session can't wake it. For a few hours earlier that day the cloud copies were gated as backup-only; Yusef reversed that because the local session kept disconnecting. If the local session has its own copy of a routine (e.g. its 8:30am finance brief), duplicates are possible while it's online.
+**Which session runs routines (updated 2026-10-08):** Yusef asked to move the routines to his local "Personal Assistant" session (`session_01658mKS1vFHC6JM1ewijJRu`). New copies bound to it: You Are Here `trig_01PXx8Dtp2AcUY7pEySCYifn`, Daily planner + brief `trig_01386NC8ZqJ3Sh2AXWniq8qE`, Weekly Retro `trig_01H4KY8cv1KWC8hpjRqQHHFo`. The cloud session's copies (IDs below) are **disabled**, not deleted. The Weekly Meal Planner was disabled and not moved: its logic predates his 🥘 Meal Prep system. The Weekly Chore Reset still runs in a fresh session of its own. The local session misses runs while his computer sleeps. Earlier history: from 2026-09-26 the cloud session was the primary runner because the local one kept disconnecting.
 
 Routines live in the cloud session (all times ET, EDT):
 - **"You Are Here - daily refresh"** (trigger `trig_01XG3p3uNQK2wjoqHiEjaQHY`, daily 11:00 UTC / 7:00am) — silently refreshes the 📍 You Are Here callout on the Data Base page.
