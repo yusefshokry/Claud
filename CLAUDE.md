@@ -111,6 +111,7 @@ Routines live in the cloud session (all times ET, EDT):
 - **Icons**: Tasks → `icons/checklist_yellow`. Goals → `icons/bullseye_<color>`. Projects → `icons/wrench_<color>` (game-plan/strategy docs → `icons/chess-queen_<color>`). Color by area: Career/Portfolio blue, Financial green, Home/Health pink, Education/social yellow. Never emoji icons on INBOX rows.
 - **Task titles**: concise (2–6 words), verb first, **never numbered**. Details live in the page body.
 - **Frozen** is a state (checkbox), not a sub-task (see above).
+- **Effort** (Heavy / Medium / Light, added 2026-10-16) means how draining a task is, separate from how long it takes. Heavy needs a fresh pre-shift morning slot. Medium shouldn't go right after a shift. Light fits anytime. Yusef fills it in himself. The 🗂️ PARA view sorts by Priority, then Effort, then Life Area.
 - **Owner** (Yusef / Claude, empty = Yusef): Claude-owned tasks are research the project-agent took on. They're not scheduled on his calendar.
 
 ## Other tools built
