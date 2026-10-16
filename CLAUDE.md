@@ -91,6 +91,7 @@ Routines live in the cloud session (all times ET, EDT):
 
 ## Skills (in this repo)
 
+- **`/tutorial-notes`** (`.claude/skills/tutorial-notes/`, added 2026-10-16): turns a YouTube tutorial link (transcript fetched by script) or a pasted paid-course transcript into an INBOX Note row he can review. The row has a TL;DR, key techniques with timestamps, a step-by-step checklist, mistakes to avoid, "Apply it" drills for his current focus, and the full transcript in a toggle.
 - **`/plan-gaps`** (`.claude/skills/plan-gaps/SKILL.md`) — on demand, for one named plan or the whole INBOX: finds Goals/Projects/Tasks with no clear next action and writes concise, unnumbered, verb-first sub-task chains grounded in his real details, and links cross-plan dependencies with the INBOX **`Blocked by` / `Blocking`** relation (added 2026-09-26). The daily planner skips any task whose Blocked by item isn't done. Shop outreach lives in INBOX Shop rows (`Shop Tier`, `Outreach Status`, `First Visit`, `Next Follow-up`), not Contacts.
 
 ## Agents (in this repo)
