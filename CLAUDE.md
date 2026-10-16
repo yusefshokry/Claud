@@ -99,7 +99,15 @@ Routines live in the cloud session (all times ET, EDT):
 
   Caveat: the scheduled task was created with no connectors attached. Until Yusef adds Notion, Gmail and Google Calendar to it in the claude.ai routines settings, its runs can't reach his data. The trigger prompt is self-contained and mirrors the skill file, so keep the two in sync.
 - Parked for later: **"Build tattoo course notes system"** (INBOX Project, 2026-10-16). It covers one creator's YouTube and paid course content, stored as one topic page per area. Yusef may run it through Dispatch.
-- **`/tutorial-notes`** (`.claude/skills/tutorial-notes/`, added 2026-10-16): turns a YouTube tutorial link (transcript fetched by script) or a pasted paid-course transcript into an INBOX Note row he can review. The row has a TL;DR, key techniques with timestamps, a step-by-step checklist, mistakes to avoid, "Apply it" drills for his current focus, and the full transcript in a toggle.
+- **`/tutorial-notes`** (`.claude/skills/tutorial-notes/`, added 2026-10-16, upgraded the same day): transcribes a video and then plugs it into his system. Sources are a YouTube video or playlist (transcript fetched by script) or a pasted paid-course transcript. It writes an INBOX Note row with a TL;DR, techniques with timestamps, a checklist, mistakes to avoid and the full transcript. It then works out where each takeaway belongs:
+  - drills → Task rows the planner schedules
+  - improvements → existing task pages
+  - purchases → budget-gated tasks
+  - routine changes → paste-ready text for the planner chat
+  - strategy shifts → the Strategy Log
+  - repeatable processes → new skills
+
+  It records all of this in an Integration plan section. When unsure where something belongs, it asks.
 - **`/plan-gaps`** (`.claude/skills/plan-gaps/SKILL.md`) — on demand, for one named plan or the whole INBOX: finds Goals/Projects/Tasks with no clear next action and writes concise, unnumbered, verb-first sub-task chains grounded in his real details, and links cross-plan dependencies with the INBOX **`Blocked by` / `Blocking`** relation (added 2026-09-26). The daily planner skips any task whose Blocked by item isn't done. Shop outreach lives in INBOX Shop rows (`Shop Tier`, `Outreach Status`, `First Visit`, `Next Follow-up`), not Contacts.
 
 ## Agents (in this repo)
