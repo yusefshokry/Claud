@@ -92,7 +92,9 @@ Routines live in the cloud session (all times ET, EDT):
 ## Skills (in this repo)
 
 - **`/strategist`** (`.claude/skills/strategist/SKILL.md`, added 2026-10-16): Yusef's proactive research and strategy partner. It also runs as the scheduled task "Strategist - daily research + strategy" (`trig_016J3bmM2CYin7dp8RHNPP6s`, daily 6:20am ET, fresh session each run, **full autonomy** within hard limits, daily "heavy" until his system is built out). Each run it:
-  - picks 1–3 bottlenecks across his goals;
+  - finds the ONE constraint across his goals (prompt v2, 2026-10-22, built from Anthropic agent-prompting guidance, Rumelt's strategy kernel, Theory of Constraints and WOOP);
+  - diagnoses it and keeps a per-goal kernel (diagnosis, guiding policy, coherent actions) in the log's "Current strategy" section;
+  - adds at most ~5 tasks per run and writes if–then plans for obstacles;
   - researches them and creates concrete Task rows and Gmail drafts;
   - may build skills, properties and views;
   - logs to the INBOX row "Strategy Log" (https://app.notion.com/p/3fbe4241b1a381228661d0643d7cbdae), ending with a `BRIEF:` line the morning brief should copy.
